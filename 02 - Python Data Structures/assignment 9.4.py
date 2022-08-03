@@ -8,22 +8,22 @@
 
 file = open(input("Enter file:"))
 
-largestAuthor = dict()
+authors = dict()
 
 for line in file:
     if not line.startswith("From "):
         continue
-    largestAuthor[line.split()[1]] = largestAuthor.get(line.split()[1], 0) + 1
+    authors[line.split()[1]] = authors.get(line.split()[1], 0) + 1
 
 occurrences = None
 author = None
 
-for n in largestAuthor:
+for n in authors:
     if occurrences is None:
-        occurrences = largestAuthor[n]
+        occurrences = authors[n]
 
-    if occurrences < largestAuthor[n]:
-        occurrences = largestAuthor[n]
+    if occurrences < authors[n]:
+        occurrences = authors[n]
         author = n
 
 print(author, occurrences)
